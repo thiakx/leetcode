@@ -12,7 +12,7 @@ class funcTest(unittest.TestCase):
         solution = Solution()
         self.assertEqual(solution.maxSubArray(input_values), output_value)
 
-
+# O(n) complexity
 class Solution(object):
 
     def maxSubArray(self, nums):
