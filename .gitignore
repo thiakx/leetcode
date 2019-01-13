@@ -1,0 +1,9 @@
+.ipynb
+.ipynb_checkpoints
+.idea
+*.pyc
+*.class
+.venv
+.DS_Store
+*.iml
+unittests.cfg
