@@ -24,9 +24,10 @@ class Solution:
         """
         dp = [0] + [float('inf')] * amount
 
-        for i in range(amount + 1):
+        for i in range(1, amount + 1):
             for j in range(len(coins)):
                 if coins[j] <= i:
+                    # replace inf with the first coin, then replace if there is a smaller solution
                     dp[i] = min(dp[i], dp[i - coins[j]] + 1)
 
         if dp[-1] == float('inf'):
