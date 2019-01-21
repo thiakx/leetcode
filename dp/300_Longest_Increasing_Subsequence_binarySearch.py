@@ -1,5 +1,6 @@
 import unittest
 import math
+
 # Longest Increasing Subsequence
 
 input_value = [10, 9, 2, 5, 3, 7, 101, 18]
@@ -13,6 +14,7 @@ class funcTest(unittest.TestCase):
 
 
 # with binary seach, reduce time complexity to O(nlog(n))
+# https://leetcode.com/problems/longest-increasing-subsequence/discuss/74824/JavaPython-Binary-search-O(nlogn)-time-with-explanation
 class Solution:
     def lengthOfLIS(self, nums):
         """
@@ -31,6 +33,7 @@ class Solution:
             j = temp_max
             while i != j:
                 m = math.floor((i + j) / 2)
+                # keep the smallest value for each length combination
                 if dp[m] < x:
                     i = m + 1
                 else:
