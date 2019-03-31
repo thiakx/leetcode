@@ -27,6 +27,7 @@ class Solution:
         for i in reversed(range(n)):
             for j in range(i, n):
                 # note that palindrome if only have 1 or two char is trivial, so start at 3
+                # single row array, i + 1, j -1 to come back to center for compare
                 if s[i] == s[j] and (j - i < 3 or dp[i + 1][j - 1] == 1):
                     dp[i][j] = 1
                     if temp_str == '' or max_length < j - i + 1:
