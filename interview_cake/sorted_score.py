@@ -4,7 +4,7 @@ import unittest
 def sort_scores(unsorted_scores, highest_possible_score):
     score_counts = [0] * (highest_possible_score + 1)
 
-    # keep track of counts
+    # keep track of counts, append to index
     for score in unsorted_scores:
         score_counts[score] += 1
 
@@ -12,6 +12,8 @@ def sort_scores(unsorted_scores, highest_possible_score):
 
     for i in reversed(range(len(score_counts))):
         if score_counts[i] > 0:
+            # not O(n^2) here cox j not looping n,
+            # just gonna append based on count
             for j in range(score_counts[i]):
                 sorted_scores.append(i)
     return sorted_scores
