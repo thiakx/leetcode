@@ -11,8 +11,7 @@ def get_products_of_all_ints_except_at_index(int_list):
     product_no_curr_index[0] = 1
 
     for i in range(len(int_list) - 1):
-        before_index_value = product_no_curr_index[i] * int_list[i]
-        product_no_curr_index[i + 1] = before_index_value
+        product_no_curr_index[i + 1] = product_no_curr_index[i] * int_list[i]
 
     # multiply with values after index
     product_temp = 1
@@ -21,7 +20,7 @@ def get_products_of_all_ints_except_at_index(int_list):
         product_no_curr_index[i] *= product_temp
         product_temp *= int_list[i]
 
-    return (product_no_curr_index)
+    return product_no_curr_index
 
 
 # Tests
