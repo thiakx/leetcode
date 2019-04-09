@@ -8,6 +8,9 @@ def change_possibilities(amount, denominations):
     n_cents_amount[0] = 1
 
     # the same coin only have 1 way of reaching the amount (combination, not permutation)
+    # think about how many ways to reach X.
+    # X = 2, we can do 1+1, or 2.
+    # X = 4, we can do 1+1+2, 2+2 or 1+1+1+1
     for coin in denominations:
         for value in range(coin, amount + 1):
             n_cents_amount[value] += n_cents_amount[value - coin]
