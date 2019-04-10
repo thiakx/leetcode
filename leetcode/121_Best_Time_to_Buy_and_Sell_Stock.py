@@ -1,5 +1,6 @@
 import unittest
 import math
+from typing import List
 
 # 121. Best Time to Buy and Sell Stock
 # Say you have an array for which the ith element is the price of a given stock on day i.
@@ -17,22 +18,20 @@ class funcTest(unittest.TestCase):
 
 
 class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
 
-    def maxProfit(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: int
-        """
-        # maintain two variables: min price max profit
-        minprice = math.inf
-        maxprofit = 0
+        if len(prices) == 0:
+            return 0
+        # assume cannot -ve profit
+        max_profit = 0
+        min_price = prices[0]
 
-        for i in range(len(prices)):
-            if prices[i] < minprice:
-                minprice = prices[i]  # buy
-            elif prices[i] - minprice > maxprofit:
-                maxprofit = prices[i] - minprice  # sell
-        return maxprofit
+        for price in prices[1:]:
+            # assume cannot buy and sell on same day
+            max_profit = max(price - min_price, max_profit)
+            min_price = min(price, min_price)
+
+        return max_profit
 
 
 if __name__ == '__main__':

@@ -11,7 +11,7 @@ class Solution(object):
         mapping_dict = {')': '(',
                         '}': '{',
                         ']': '['}
-
+        # check empty
         if not s:
             return True
         else:

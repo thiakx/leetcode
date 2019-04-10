@@ -13,12 +13,15 @@ class Solution(object):
             curr = next_temp
         return prev
 
-
-    # def reverseList(self, head):
+    # #recursion
+    #  def reverseList(self, head):
     #     if head is None or head.next is None:
     #         return head
-    #     solution = Solution()
-    #     prev = solution.reverseList(head.next)
-    #     head.next.next = head
-    #     head.next = None
-    #     return prev
+    #     else:
+    #         solution = Solution()
+    #         prev = solution.reverseList(head.next)
+    #         # let n_(k+1) point back to n_k
+    #         head.next.next = head
+    #         # drop the original pointer so wont have loop
+    #         head.next = None
+    #         return prev

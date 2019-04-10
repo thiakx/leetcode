@@ -1,7 +1,5 @@
 import unittest
 
-import unittest
-
 input_value = 'MCMXCIV'
 output_value = 1994
 
@@ -13,7 +11,7 @@ class funcTest(unittest.TestCase):
 
 
 class Solution:
-    def romanToInt(self, s):
+    def romanToInt(self, s: str) -> int:
         """
         :type s: str
         :rtype: int
