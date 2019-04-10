@@ -12,7 +12,7 @@ class Solution:
         # edge cases
         # num1 empty, return num2
         if m == 0:
-            nums1[:] = nums2[:]  # python trick to copy
+            nums1[:] = nums2  # python trick to assign copy of value to list
         # num2 empty, do nothing, return num1
         elif n == 0:
             pass
