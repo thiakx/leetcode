@@ -1,10 +1,10 @@
 import unittest
 from typing import List
 
+
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
 
-        # if blank, can return ''
         if len(strs) == 0:
             return ''
         elif len(strs) == 1:
