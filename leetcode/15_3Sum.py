@@ -16,10 +16,10 @@ class Solution:
                 continue
             left, right = i + 1, len(nums) - 1
             while left < right:
-                s = nums[i] + nums[left] + nums[right]
-                if s < 0:
+                sum = nums[i] + nums[left] + nums[right]
+                if sum < 0:
                     left += 1
-                elif s > 0:
+                elif sum > 0:
                     right -= 1
                 else:
                     res.append((nums[i], nums[left], nums[right]))
