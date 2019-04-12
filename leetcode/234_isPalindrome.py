@@ -4,7 +4,7 @@ class ListNode:
         self.val = x
         self.next = None
 
-# from forums
+# source: from discussion forum
 class Solution:
     def isPalindrome(self, head: ListNode) -> bool:
         rev = None

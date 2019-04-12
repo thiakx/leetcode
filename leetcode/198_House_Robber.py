@@ -1,4 +1,5 @@
 import unittest
+from typing import List
 
 # You are a professional robber planning to rob houses along a street.
 # Each house has a certain amount of money stashed,
@@ -18,25 +19,21 @@ class funcTest(unittest.TestCase):
         self.assertEqual(solution.rob(input_values), output_value)
 
 
+# can use temp vars to hold max values instead of save in array, array easier to trace path though
 class Solution:
-    def rob(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        num_len = len(nums)
-        if num_len == 1:
-            return nums[0]
-        elif num_len == 2:
-            return max(nums[0], nums[1])
+    def rob(self, nums: List[int]) -> int:
+
+        if len(nums) == 0:
+            return 0
+        elif len(nums) < 3:
+            return max(nums)
         else:
-            prev1 = 0
-            prev2 = 0
-            for i in range(num_len):
-                temp = prev1
-                prev1 = max(prev2 + nums[i], prev1)
-                prev2 = temp
-            return prev1
+            for i in range(2, len(nums)):
+                if i < 3:
+                    nums[i] += nums[i - 2]
+                else:
+                    nums[i] += max(nums[i - 2], nums[i - 3])
+        return max(nums)
 
 
 if __name__ == '__main__':
