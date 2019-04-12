@@ -16,6 +16,7 @@ class Solution:
             if needle[0] not in haystack_set:
                 return -1
             else:
+                # use a moving window
                 for i in range(haystack_len - needle_len + 1):
                     if haystack[i:i + needle_len] == needle:
                         return i
