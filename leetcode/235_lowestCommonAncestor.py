@@ -5,7 +5,7 @@ class TreeNode:
         self.right = None
 
 
-# from leetcode solns
+# reference: leetcode solns
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         p_val = p.val
