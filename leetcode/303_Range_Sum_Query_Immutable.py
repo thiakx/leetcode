@@ -1,4 +1,5 @@
 import unittest
+from typing import List, Union
 
 # Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.
 
@@ -14,23 +15,20 @@ class funcTest(unittest.TestCase):
 
 class NumArray:
 
-    def __init__(self, nums):
-        """
-        :type nums: List[int]
-        """
-        num_len = len(nums)
-        self.total = (num_len + 1) * [0]
-        for i in range(num_len):
-            # use dp to keep track of cumulative sum
-            self.total[i + 1] = self.total[i] + nums[i]
+    def __init__(self, nums: List[int]):
+        self.len_nums = len(nums)
+        self.cumulative_sum = [0] * self.len_nums
+        self.cumulative_sum[0] = nums[0]
+        for i in range(1, self.len_nums):
+            self.cumulative_sum[i] = nums[i] + self.cumulative_sum[i - 1]
 
-    def sumRange(self, i, j):
-        """
-        :type i: int
-        :type j: int
-        :rtype: int
-        """
-        return self.total[j + 1] - self.total[i]
+    def sumRange(self, i: int, j: int) -> Union[int, None]:
+        if self.len_nums == 0:
+            return None
+        elif i == 0:
+            return self.cumulative_sum[j]
+        else:
+            return self.cumulative_sum[j] - self.cumulative_sum[i - 1]
 
 
 if __name__ == '__main__':
