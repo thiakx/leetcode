@@ -13,14 +13,10 @@ class funcTest(unittest.TestCase):
 
 
 class Solution:
-    def longestPalindrome(self, s):
-        """
-        :type s: string
-        :rtype: string
-        """
+    def longestPalindrome(self, s: str) -> str:
         temp_str = ''
         n = len(s)
-        dp = [[0] * n for i in range(n)]
+        dp = [[0] * n for _ in range(n)]
         max_length = 0
 
         # compare reversed with front
@@ -33,6 +29,10 @@ class Solution:
                     if temp_str == '' or max_length < j - i + 1:
                         temp_str = s[i:j + 1]
                         max_length = j - i + 1
+                    else:
+                        pass
+                else:
+                    pass
         return temp_str
 
 
