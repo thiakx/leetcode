@@ -18,24 +18,17 @@ class funcTest(unittest.TestCase):
 
 
 class Solution:
-    def numWays(self, n, k):
-        """
-        :type n: int
-        :type k: int
-        :rtype: int
-        """
+    # reference: forums
+    def numWays(self, n: int, k: int) -> int:
         if n == 0:
             return 0
         elif n == 1:
             return k
         else:
-            same_count = k
-            diff_count = k * (k - 1)
-            for i in range(2, n):
-                temp = diff_count
-                diff_count = (diff_count + same_count) * (k - 1)
-                same_count = temp
-            return diff_count + same_count
+            same, diff = k, k * (k - 1)
+            for i in range(3, n + 1):
+                same, diff = diff, (same + diff) * (k - 1)
+            return same + diff
 
 
 if __name__ == '__main__':
