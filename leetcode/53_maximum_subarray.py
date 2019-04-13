@@ -1,4 +1,5 @@
 import unittest
+from typing import List
 
 # 53. Maximum Subarray
 # Given an integer array nums, find the contiguous subarray
@@ -12,21 +13,14 @@ class funcTest(unittest.TestCase):
         solution = Solution()
         self.assertEqual(solution.maxSubArray(input_values), output_value)
 
+
 # O(n) complexity
 class Solution(object):
 
-    def maxSubArray(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        max_subarray_values = [nums[0]]
+    def maxSubArray(self, nums: List[int]) -> int:
         for i in range(1, len(nums)):
-            if max_subarray_values[-1] < 0:
-                max_subarray_values.append(nums[i])  # if negative, don't append previous value
-            else:
-                max_subarray_values.append(nums[i] + max_subarray_values[-1])
-        return max(max_subarray_values)
+            nums[i] = max(nums[i], nums[i] + nums[i - 1])
+        return max(nums)
 
 
 if __name__ == '__main__':
