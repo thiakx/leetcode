@@ -15,16 +15,16 @@ class funcTest(unittest.TestCase):
 
 
 class Solution:
-    def climbStairs(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        num_ways = [0, 1, 1]
-        # dp, treat it as fibonacci sequence. 0,1,1,2,3,5,8 ....
-        for i in range(3, n + 2):
-            num_ways.append(num_ways[-1] + num_ways[-2])
-        return num_ways[-1]
+    def climbStairs(self, n: int) -> int:
+        if n < 3:
+            return n
+        steps = [0] * (n + 1)
+        steps[0] = 0
+        steps[1] = 1
+        steps[2] = 2
+        for i in range(3,n+1):
+            steps[i] = steps[i-1] + steps[i-2]
+        return steps[n]
 
 
 if __name__ == '__main__':
