@@ -1,4 +1,5 @@
 import unittest
+from typing import List
 
 # There are a row of n houses, each house can be painted with one of the three colors:
 # red, blue or green. The cost of painting each house with a certain color is different.
@@ -19,23 +20,18 @@ class funcTest(unittest.TestCase):
 
 
 class Solution:
-    def minCost(self, costs):
-        """
-        :type costs: List[List[int]]
-        :rtype: int
-        """
-        costs_temp = costs
-        if len(costs_temp) == 0:
+    def minCost(self, costs: List[List[int]]) -> int:
+        len_cost = len(costs)
+        if len_cost == 0:
             return 0
-        elif len(costs_temp) == 1:
-            return min(costs_temp[0])
+        elif len_cost == 1:
+            return min(costs[0])
         else:
-            # keep first house values, start from 2nd house
-            for i in range(1, len(costs_temp)):
-                costs_temp[i][0] += min(costs_temp[i - 1][1], costs_temp[i - 1][2])  # cannot be red
-                costs_temp[i][1] += min(costs_temp[i - 1][0], costs_temp[i - 1][2])  # cannot be green
-                costs_temp[i][2] += min(costs_temp[i - 1][0], costs_temp[i - 1][1])  # cannot be blue
-            return min(costs_temp[-1])
+            for i in range(1, len_cost):
+                costs[i][0] += min(costs[i - 1][1], costs[i - 1][2])  # cannot be red
+                costs[i][1] += min(costs[i - 1][0], costs[i - 1][2])  # cannot be green
+                costs[i][2] += min(costs[i - 1][0], costs[i - 1][1])  # cannot be blue
+        return min(costs[len_cost - 1])
 
 
 if __name__ == '__main__':
