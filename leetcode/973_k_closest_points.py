@@ -2,6 +2,7 @@ import unittest
 from typing import List
 
 
+# not optimal. D&D better
 class Solution:
     def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
         if K == 0 or len(points) == 0:

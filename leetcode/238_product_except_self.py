@@ -13,10 +13,15 @@ class Solution:
         # first multiplication is just 1 so won't affect
         product_no_curr_index[0] = 1
 
+        # Part 1
+        # multiply numbers to the left of index, exclude index
+        # example: nums = [1,2,3,4]
+        #                 [1,1,2,6]
         for i in range(len(nums) - 1):
             product_no_curr_index[i + 1] = product_no_curr_index[i] * nums[i]
 
-        # multiply with values after index
+        # Part 2
+        # multiply with values after index, exclude index and on part1 result
         product_temp = 1
 
         for i in range(len(nums) - 1, -1, -1):
