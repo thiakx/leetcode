@@ -1,3 +1,5 @@
+from typing import Union
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
@@ -7,10 +9,10 @@ class TreeNode:
 
 
 class Solution:
-    def invertTree(self, root: TreeNode) -> TreeNode:
+    def invertTree(self, root: TreeNode) -> Union(TreeNode, None):
         t = Solution()
         if not root:
-            return
+            return None
         else:
             t.invertTree(root.right)
             t.invertTree(root.left)
