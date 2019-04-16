@@ -1,4 +1,8 @@
-def get_max_profit(stock_prices):
+import unittest
+from typing import List
+
+
+def get_max_profit(stock_prices: List[int]) -> int:
     # Calculate the max profit
     min_value = stock_prices[0]
     max_profit = stock_prices[1] - stock_prices[0]
@@ -15,9 +19,6 @@ def get_max_profit(stock_prices):
 
 
 # Tests
-
-import unittest
-
 
 class Test(unittest.TestCase):
 
@@ -55,4 +56,5 @@ class Test(unittest.TestCase):
             get_max_profit([1])
 
 
-unittest.main(verbosity=2)
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
